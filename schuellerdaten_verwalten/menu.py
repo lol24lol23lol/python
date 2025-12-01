@@ -63,16 +63,6 @@ def succesfull_login_admin():
 
 
 
-
-
-
-
-
-
-
-
-
-
 #jahrgangs daten
 
 def ganzer_jahrgang():
@@ -99,12 +89,6 @@ def jahrgang_suchen():
     scrolltext_widget.insert(tkinter.END,  clean_schueller_des_jahrgangs) 
     scrolltext_widget.config(state='disabled')
         
-
-
-
-
-
-
 
 
 
