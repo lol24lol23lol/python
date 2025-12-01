@@ -1,18 +1,13 @@
 import tkinter
 from tkinter import font, scrolledtext, messagebox, ttk, Menu
-
 root = tkinter.Tk()
 root.geometry("400x300")
-
 scrolltext_widget = None
-
 def clear_screen():
     for widget in root.winfo_children():
         if not isinstance(widget, tkinter.Menu):
             widget.destroy()
-
 #admin login
-
 def adminlogin():
     clear_screen()
     global admin_password_entry
@@ -27,22 +22,16 @@ def adminlogin():
     admin_password_entry.pack()
     submit_button = tkinter.Button(root, text="Submit", command=submitt_for_admin)
     submit_button.pack()
-
 def get_admin_passwords_and_usernames():
     with open("dmin\\usernamesadmin.txt", "r") as f:
         usernames_from_admin = f.read()
         print()
-
-
 def submitt_for_admin():
     global adminusernamemenu
     adminusernamemenu = admin_entry.get()
     password = admin_password_entry.get()
     if adminusernamemenu == "ferdinand" and password == "ferdinand123":
         succesfull_login_admin()
-
-
-
 def succesfull_login_admin():
     clear_screen() 
     if not root.cget("menu"): 
@@ -59,22 +48,7 @@ def succesfull_login_admin():
     root.geometry("500x500")
     welcome_label = tkinter.Label(root, text=f"Willkommen, {adminusernamemenu}!",font=("Arial", 16, "bold"))
     welcome_label.pack(pady=50)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #jahrgangs daten
-
 def ganzer_jahrgang():
     clear_screen()
     global jahrgang_eingabe
@@ -98,15 +72,9 @@ def jahrgang_suchen():
     scrolltext_widget.delete('1.0', tkinter.END) 
     scrolltext_widget.insert(tkinter.END,  clean_schueller_des_jahrgangs) 
     scrolltext_widget.config(state='disabled')
-
-
 #SuS daten
-
 def SuSmachen():
     print("idk cuh do it yourself or smth tbh")
-
-
-
 def SuSsuchen():
     clear_screen()
     global schueller_suchen_eingabe
@@ -126,9 +94,6 @@ def SuSsuchen():
     schueller_suchen_klasse_eingabe.pack()
     submit_button = tkinter.Button(root, text="Suchen", command=SuS_daten_suchen)
     submit_button.pack(pady=10)
-
-
-
 def SuS_daten_suchen():
     global bereinigter_text
     jahrgang_des_schuellers = schueller_suchen_jahrgang_eingabe.get()
@@ -139,11 +104,6 @@ def SuS_daten_suchen():
         daten_SuS_from_file = f.read()
         bereinigter_text = daten_SuS_from_file.replace("{", "").replace("}", "").replace("#", "").strip()
         SuS_daten_anzeigen_admin()
-
-
-
-
-
 def SuS_daten_anzeigen_admin():
     global scrolltext_widget
     if scrolltext_widget:
@@ -153,9 +113,5 @@ def SuS_daten_anzeigen_admin():
     scrolltext_widget.delete('1.0', tkinter.END) 
     scrolltext_widget.insert(tkinter.END, bereinigter_text) 
     scrolltext_widget.config(state='disabled')
-
-
-
 adminlogin()
-
 root.mainloop()
