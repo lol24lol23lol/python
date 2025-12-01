@@ -98,14 +98,6 @@ def jahrgang_suchen():
     scrolltext_widget.delete('1.0', tkinter.END) 
     scrolltext_widget.insert(tkinter.END,  clean_schueller_des_jahrgangs) 
     scrolltext_widget.config(state='disabled')
-        
-
-
-
-
-
-
-
 
 
 #SuS daten
